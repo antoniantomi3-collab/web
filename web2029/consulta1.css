@@ -1,0 +1,163 @@
+/*
+=====================================================
+    1. GENERAL & TIPOGRAFÍA
+=====================================================
+*/
+:root {
+    --color-principal: #3498db; /* Azul corporativo */
+    --color-acento: #2ecc71;    /* Verde para el resultado final (éxito) */
+    --color-fondo: #f4f4f4;
+    --color-texto: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/*
+=====================================================
+    2. CONTENEDOR PRINCIPAL Y HEADER
+=====================================================
+*/
+.contenedor-principal {
+    width: 90%;
+    max-width: 450px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+header {
+    background-color: var(--color-principal);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/*
+=====================================================
+    3. ESTILOS DEL FORMULARIO
+=====================================================
+*/
+.formulario-pago {
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--color-principal);
+}
+
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: var(--color-principal);
+    outline: none;
+}
+
+.btn-calcular {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.btn-calcular:hover {
+    background-color: #2980b9; /* Tono más oscuro de azul */
+}
+
+/*
+=====================================================
+    4. ESTILOS DE RESULTADO (Cuando se envía el formulario)
+=====================================================
+*/
+.resultado-box {
+    padding: 30px;
+}
+
+.resultado-box p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.resultado-box hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 15px 0;
+}
+
+.resultado-box strong {
+    font-weight: 700;
+    color: var(--color-texto);
+}
+
+.resultado-final {
+    font-size: 1.4rem !important;
+    font-weight: bold;
+    color: var(--color-acento) !important;
+    border-top: 2px dashed #ccc;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.resultado-final strong {
+    color: var(--color-acento) !important;
+    font-size: 1.4rem;
+}
+
+.btn-volver {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 15px;
+    background-color: #f1c40f; /* Color llamativo para el botón de acción */
+    color: var(--color-texto);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn-volver:hover {
+    background-color: #f39c12;
+}

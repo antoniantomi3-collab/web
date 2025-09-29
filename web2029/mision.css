@@ -1,0 +1,169 @@
+/*
+=====================================================
+    1. VARIABLES & RESET
+=====================================================
+*/
+:root {
+    --color-primario: #00a878;       /* Verde menta/crecimiento */
+    --color-secundario: #34495e;     /* Gris oscuro para profesionalismo (Texto) */
+    --color-fondo-claro: #ecf0f1;    /* Gris muy claro (Fondo de la página) */
+    --color-fondo-blanco: #ffffff;   /* CORREGIDO: Blanco para el fondo de los párrafos */
+    --sombra-elevada: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --transicion-rapida: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Fuente moderna y legible */
+    line-height: 1.6;
+    color: var(--color-secundario);
+    background-color: var(--color-fondo-claro);
+}
+
+/*
+=====================================================
+    2. HEADER & MAIN TITLE
+=====================================================
+*/
+header {
+    background-color: var(--color-secundario);
+    color: var(--color-fondo-blanco); /* El color de fondo-blanco es ahora blanco, esto está bien */
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: var(--sombra-elevada);
+    position: relative;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+}
+
+/*
+=====================================================
+    3. NAVIGATION (Assumes this is used for a menu)
+=====================================================
+*/
+nav ul li {
+    background-color: #006666;
+    color: white; 
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Ensures link text is white and the entire area is clickable */
+nav ul li a {
+    color: inherit; 
+    text-decoration: none; 
+    display: block; 
+    padding: 8px 15px; 
+}
+
+/* Prevents the 'visited' link color (usually purple) */
+nav ul li a:visited {
+    color: inherit; 
+}
+
+
+/*
+=====================================================
+    4. CONTENT CONTAINER (padre) - Using CSS GRID
+=====================================================
+*/
+.padre {
+    max-width: 1200px;
+    margin: 0px auto 60px;
+    padding: 40px 20px;
+    background-color: var(--color-fondo-claro);
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px; 
+    
+    align-items: start; 
+}
+
+.padre p {
+    font-size: 1.1rem;
+    padding: 25px;
+    /* Usa el color blanco corregido para que el texto sea visible */
+    background-color: var(--color-fondo-blanco); 
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid var(--color-primario);
+    line-height: 1.8;
+    transition: var(--transicion-rapida);
+    color: var(--color-secundario); /* Asegura que el color del texto sea el gris oscuro */
+}
+
+.padre p:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.padre img {
+    grid-column: 1 / span 2; 
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: var(--sombra-elevada);
+    opacity: 0.95;
+    transition: var(--transicion-rapida);
+}
+
+.padre img:hover {
+    opacity: 1;
+}
+
+/*
+=====================================================
+    5. RESPONSIVE DESIGN
+=====================================================
+*/
+@media (min-width: 900px) {
+    .padre {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    /* Reordenamiento de columnas en escritorio */
+    .padre p:nth-of-type(1) {
+        grid-column: 1 / 2;
+        order: 1;
+    }
+    
+    .padre img {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3; 
+        max-width: none; 
+        height: 100%;
+        order: 2;
+    }
+    
+    .padre p:nth-of-type(2) {
+        grid-column: 1 / 2;
+        order: 3;
+    }
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .padre {
+        gap: 20px;
+        padding: 20px 10px;
+    }
+}
